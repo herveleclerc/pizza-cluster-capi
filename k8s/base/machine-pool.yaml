@@ -1,0 +1,20 @@
+apiVersion: exp.cluster.x-k8s.io/v1alpha3
+kind: MachinePool
+metadata:
+  name: agentpool0
+  namespace: default
+spec:
+  clusterName: akscapi
+  replicas: 1
+  template:
+    metadata: {}
+    spec:
+      bootstrap:
+        dataSecretName: ""
+      clusterName: akscapi
+      infrastructureRef:
+        apiVersion: exp.infrastructure.cluster.x-k8s.io/v1alpha3
+        kind: AzureManagedMachinePool
+        name: agentpool0
+        namespace: default
+      version: 1.19.6
